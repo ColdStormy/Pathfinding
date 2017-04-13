@@ -36,9 +36,13 @@ public class Pathfinding extends ApplicationAdapter {
     // run animation?
     private boolean play = false;
 
+    private ShapeRenderer sr;
+
 
 	@Override
 	public void create () {
+
+        sr = new ShapeRenderer();
 		batch = new SpriteBatch();
 		font = new BitmapFont();
 		font.setColor(Color.WHITE);
@@ -126,8 +130,6 @@ public class Pathfinding extends ApplicationAdapter {
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         Gdx.gl.glEnable(GL20.GL_BLEND);
         Gdx.gl.glBlendFunc(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA);
-
-        ShapeRenderer sr = new ShapeRenderer();
 
 		sr.begin(ShapeRenderer.ShapeType.Filled);
 
@@ -234,7 +236,7 @@ public class Pathfinding extends ApplicationAdapter {
 	
 	@Override
 	public void dispose () {
-		font.dispose();
+	    sr.dispose();
 	    batch.dispose();
 	    font.dispose();
 	}
